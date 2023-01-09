@@ -20,6 +20,7 @@ class Bot:
                 user_input = msg.text[5:].split('\n#\n')
                 if len(user_input) == 1:
                     response = self.gpt.get_response(user_input[0])
+                    self.bot.send_message(msg.from_user.id, response)
                 elif len(user_input) == 2:
                     prompt = user_input[0]
                     settings = self.parse_settings(user_input[1])
