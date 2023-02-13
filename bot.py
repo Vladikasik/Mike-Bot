@@ -24,6 +24,7 @@ class Bot:
                 elif len(user_input) == 2:
                     prompt = user_input[0]
                     settings = self.parse_settings(user_input[1])
+                    self.bot.send_message(msg.from_user.id, f'{settings}')
                     response = self.gpt.get_response(prompt, **settings)
                     self.bot.send_message(msg.from_user.id, response)
             elif msg.text.startswith('/config'):
